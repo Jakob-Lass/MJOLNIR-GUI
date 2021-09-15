@@ -12,7 +12,6 @@ except ImportError:
     import _tools as _GUItools
     from DataModels import MatplotlibFigureList,MatplotlibFigureListDelegate
 from os import path
-from PyQt5 import QtWidgets,uic
 import numpy as np
 from MJOLNIR.Data import Viewer3D
 

@@ -14,7 +14,7 @@ except ImportError:
     import _tools as _GUItools
 from MJOLNIR.Data.Mask import MaskingObject
 from os import path
-from PyQt5 import QtWidgets, uic, QtCore, QtGui
+from PyQt6 import QtWidgets,  QtCore, QtGui
 import numpy as np
 
 from MJOLNIR.Data import Mask

@@ -8,12 +8,11 @@ except ImportError:
     from _tools import ProgressBarDecoratorArguments, loadUI
     import _tools as _GUItools
 from os import path
-from PyQt5 import QtWidgets,uic,QtGui,QtCore
 import numpy as np
 from MJOLNIR._tools import calculateMolarMass,symbols,_relative_atomic_masses
 
-from PyQt5 import QtCore, QtGui, QtWidgets
-from PyQt5.QtCore import Qt
+from PyQt6 import QtCore, QtGui, QtWidgets
+from PyQt6.QtCore import Qt
 
 # Handles all functionality related to the MolecularCalculationManager. 
 

@@ -9,7 +9,6 @@ except ImportError:
     from DataModels import MatplotlibFigureList,MatplotlibFigureListDelegate
 
 from os import path
-from PyQt5 import QtWidgets, uic
 import numpy as np
 
 def QPlane_plot_button_function(self):

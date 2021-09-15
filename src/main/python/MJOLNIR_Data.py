@@ -1,4 +1,4 @@
-from PyQt5 import QtCore
+from PyQt6 import QtCore
 from MJOLNIR.Data import DataSet,DataFile,Mask
 import copy
 import numpy as np

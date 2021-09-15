@@ -1,10 +1,10 @@
 import pickle as pickle
 import os,traceback
 import functools
-from PyQt5 import QtCore,QtWidgets
-
-from PyQt5.QtWidgets import QDialog, QDialogButtonBox, QVBoxLayout, QCheckBox, QLabel,QApplication
-from PyQt5 import uic
+from PyQt6 import QtCore,QtWidgets
+import PyQt6
+from PyQt6.QtWidgets import QDialog, QDialogButtonBox, QVBoxLayout, QCheckBox, QLabel,QApplication
+from PyQt6 import uic
 import platform
 from os import path
 
@@ -108,12 +108,12 @@ def loadUI(fileName):
     # needed before freezing app
         base,form = uic.loadUiType(path.join(path.dirname(__file__),fileName))
     
-    except FileNotFoundError:
+    except (FileNotFoundError,PyQt6.uic.exceptions.UIFileException):
         try:
-            # needed when running app local through fbs
+            # needed when running app local through fbs,
             base,form = uic.loadUiType(path.abspath(path.join(folder,fileName)))
             
-        except FileNotFoundError:
+        except (FileNotFoundError,PyQt6.uic.exceptions.UIFileException):
             # needed when running app after pip install
             
             # except FileNotFoundError:
@@ -121,7 +121,7 @@ def loadUI(fileName):
             try:
                 base,form = uic.loadUiType(path.abspath(path.join(path.dirname(__file__),'..','resources','base','Views',fileName)))
                 
-            except FileNotFoundError:
+            except (FileNotFoundError,PyQt6.uic.exceptions.UIFileException):
                 base,form = uic.loadUiType(path.abspath(path.join(path.dirname(__file__),'Views',fileName)))
     return base,form
         

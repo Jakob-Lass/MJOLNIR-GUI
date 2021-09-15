@@ -23,7 +23,7 @@ from os import path
 import os
 
 plt.ion()
-from PyQt5 import QtWidgets, QtCore, QtGui, Qt
+from PyQt6 import QtWidgets, QtCore, QtGui, Qt
 try:
     #from MJOLNIR_GUI_ui import Ui_MainWindow  
     

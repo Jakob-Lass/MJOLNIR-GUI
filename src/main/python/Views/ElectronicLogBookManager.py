@@ -7,7 +7,7 @@ except ImportError:
     from _tools import loadUI, dialog
 from os import path
 import numpy as np
-from PyQt5 import QtWidgets, uic, QtCore, QtGui
+from PyQt6 import QtWidgets, QtCore, QtGui
 from MJOLNIR.Data import DataFile
 
 

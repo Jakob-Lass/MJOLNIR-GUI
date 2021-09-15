@@ -7,7 +7,7 @@ try:
 except ModuleNotFoundError:
     from MJOLNIRGui.src.main.python._tools import loadUI
 
-from PyQt5 import QtGui
+from PyQt6 import QtGui
 
 # Handles all functionality related to the CalculatorGeneralManager. 
 

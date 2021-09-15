@@ -10,7 +10,6 @@ except ImportError:
     from _tools import loadUI
 #    import _tools as _GUItools
 from os import path
-from PyQt5 import QtWidgets, uic, QtCore, QtGui
 import numpy as np
 
 

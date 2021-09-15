@@ -2,7 +2,7 @@
 import numpy as np
 from os import path
 
-from PyQt5 import QtWidgets
+from PyQt6 import QtWidgets
 
 from MJOLNIR import _tools
 try:

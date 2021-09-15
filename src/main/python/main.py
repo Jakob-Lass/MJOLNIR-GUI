@@ -11,7 +11,7 @@ from PyQt5 import QtWidgets, QtGui, QtCore
 import datetime
 
 
-from fbs_runtime.application_context.PyQt5 import ApplicationContext, \
+from fbs_runtime.application_context.PyQt6 import ApplicationContext, \
     cached_property
     
 

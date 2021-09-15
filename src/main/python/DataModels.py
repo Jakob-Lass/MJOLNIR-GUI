@@ -1,6 +1,6 @@
 
-from PyQt5 import QtCore, QtGui, QtWidgets
-from PyQt5.QtCore import Qt
+from PyQt6 import QtCore, QtGui, QtWidgets
+from PyQt6.QtCore import Qt
 
 import pickle
 
@@ -45,7 +45,7 @@ class DataSetModel(QtCore.QAbstractListModel):
         return row
         
     def data(self, index, role = Qt.ItemDataRole):
-        if role == Qt.DisplayRole or role == QtCore.Qt.EditRole:
+        if role == Qt.DisplayRole or role == QtCore.Qt.ItemDataRole['EditRole']:
             text = self.dataSets[index.row()].name
             return text
         if role == Qt.ItemDataRole:
@@ -141,9 +141,9 @@ class DataSetModel(QtCore.QAbstractListModel):
         if not index is None:
             return self.dataSets[index.row()]
 
-    def setData(self, index, value, role=QtCore.Qt.EditRole):
+    def setData(self, index, value, role=QtCore.Qt.ItemDataRole['EditRole']):
         ds = self.item(index)
-        if role == QtCore.Qt.EditRole:
+        if role == QtCore.Qt.ItemDataRole['EditRole']:
             ds.name = value
             self.dataChanged.emit(index, index)
             return True
@@ -259,7 +259,7 @@ class DataSetModel(QtCore.QAbstractListModel):
 
 
 class SelectionModel(QtCore.QItemSelectionModel):
-    """Selection model created from https://github.com/d1vanov/PyQt5-reorderable-list-model/blob/master/reorderable_list_model.py
+    """Selection model created from https://github.com/d1vanov/PyQt6-reorderable-list-model/blob/master/reorderable_list_model.py
     When drag/drop is used, selects newly inserted item"""
     def __init__(self, parent=None):
         QtCore.QItemSelectionModel.__init__(self, parent)
@@ -289,7 +289,7 @@ class Cut1DModel(QtCore.QAbstractListModel):
         self.Cut1D_listView = Cut1D_listView
         
     def data(self, index, role):
-        if role == Qt.DisplayRole or role == QtCore.Qt.EditRole:
+        if role == Qt.DisplayRole or role == QtCore.Qt.ItemDataRole['EditRole']:
             text = self.dataCuts1D[index.row()].name
             return text
         
@@ -327,9 +327,9 @@ class Cut1DModel(QtCore.QAbstractListModel):
         if not index is None:
             return self.dataCuts1D[index.row()]
 
-    def setData(self, index, value, role=QtCore.Qt.EditRole):
+    def setData(self, index, value, role=QtCore.Qt.ItemDataRole['EditRole']):
         ds = self.item(index)
-        if role == QtCore.Qt.EditRole:
+        if role == QtCore.Qt.ItemDataRole['EditRole']:
             ds.name = value
             self.dataChanged.emit(index, index)
             return True
@@ -376,7 +376,7 @@ class BraggListModel(QtCore.QAbstractListModel):
         self.braggList_listView = braggList_listView
         
     def data(self, index, role):
-        if role == Qt.DisplayRole:# or role == QtCore.Qt.EditRole:
+        if role == Qt.DisplayRole:# or role == QtCore.Qt.ItemDataRole['EditRole']:
             text = '\t'.join(map(str,self.data[index.row()]))
             return text
         
@@ -414,9 +414,9 @@ class BraggListModel(QtCore.QAbstractListModel):
         if not index is None:
             return self.data[index.row()]
 
-    #def setData(self, index, value, role=QtCore.Qt.EditRole):
+    #def setData(self, index, value, role=QtCore.Qt.ItemDataRole['EditRole']):
     #    ds = self.item(index)
-    #    if role == QtCore.Qt.EditRole:
+    #    if role == QtCore.Qt.ItemDataRole['EditRole']:
     #        ds.name = value
     #        self.dataChanged.emit(index, index)
     #        return True
@@ -481,7 +481,7 @@ class MaskModel(QtCore.QAbstractListModel):
             self.guiWindow.mask_changed.emit()
         
     def data(self, index, role):
-        if role == Qt.DisplayRole or role == QtCore.Qt.EditRole:
+        if role == Qt.DisplayRole or role == QtCore.Qt.ItemDataRole['EditRole']:
             text = self.masks[index.row()].name
             return text
         
@@ -526,9 +526,9 @@ class MaskModel(QtCore.QAbstractListModel):
             indices = np.array([x.row() for x in index],dtype=int)
             return np.asarray(self.masks)[indices]
 
-    def setData(self, index, value, role=QtCore.Qt.EditRole):
+    def setData(self, index, value, role=QtCore.Qt.ItemDataRole['EditRole']):
         mask = self.item(index)
-        if role == QtCore.Qt.EditRole:
+        if role == QtCore.Qt.ItemDataRole['EditRole']:
             mask.name = value
             self.dataChanged.emit(index, index)
             return True
@@ -654,7 +654,7 @@ class DataFileModel(QtCore.QAbstractListModel):
         if row>= len(ds):
             return None
 
-        if role == Qt.DisplayRole or role == Qt.EditRole:
+        if role == Qt.DisplayRole or role == Qt.ItemDataRole['EditRole']:
             
             text = ds[row].name
             return text
@@ -807,11 +807,11 @@ class DataFileModel(QtCore.QAbstractListModel):
         self.selectFirstDataFile()
         self.layoutChanged.emit()
 
-    def setData(self, index, value, role=QtCore.Qt.EditRole):
+    def setData(self, index, value, role=QtCore.Qt.ItemDataRole['EditRole']):
         ds = self.dataSetModel.item(self.getCurrentDatasetIndex())
         df = ds[index.row()]
         
-        if role == QtCore.Qt.EditRole:
+        if role == QtCore.Qt.ItemDataRole['EditRole']:
             df.name = value
             
             return True
@@ -1066,7 +1066,7 @@ class DataFileInfoModel(QtCore.QAbstractListModel):
 
         
     def data(self, index, role):
-        if role == Qt.DisplayRole or role == Qt.EditRole:
+        if role == Qt.DisplayRole or role == Qt.ItemDataRole['EditRole']:
             dfs = self.dataFileModel.getCurrentDatafiles()
             I = index.row()
             info = self.infos[I]
@@ -1163,7 +1163,7 @@ class MatplotlibFigureList(QtCore.QAbstractListModel):
         self.view.setModel(self)
 
     def data(self, index, role):
-        if role == Qt.DisplayRole or role == QtCore.Qt.EditRole:
+        if role == Qt.DisplayRole or role == QtCore.Qt.ItemDataRole['EditRole']:
             if hasattr(self.figures[index.row()],'_title'):
                 text = self.figures[index.row()]._title
             else:

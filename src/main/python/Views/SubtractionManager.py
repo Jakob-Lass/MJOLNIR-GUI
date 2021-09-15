@@ -15,8 +15,8 @@ except ImportError:
 
 
 from os import path
-from PyQt5 import QtWidgets,uic, QtCore, QtGui
-from PyQt5.QtCore import Qt
+from PyQt6 import QtWidgets, QtCore, QtGui
+from PyQt6.QtCore import Qt
 import numpy as np
 def subtractable(file1,file2,A3Precision=0.1,twothetaPrecision=0.1,EiPrecision=0.1):
     checked = {}

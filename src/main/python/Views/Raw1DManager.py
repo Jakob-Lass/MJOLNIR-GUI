@@ -9,7 +9,6 @@ except ImportError:
     from _tools import ProgressBarDecoratorArguments,loadUI
 
 from os import path
-from PyQt5 import QtWidgets,uic
 import numpy as np
 
 

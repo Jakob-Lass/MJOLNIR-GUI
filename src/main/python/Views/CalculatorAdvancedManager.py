@@ -4,7 +4,6 @@ sys.path.append('..')
 from os import path
 import numpy as np
 
-from PyQt5 import uic
 import platform
 from MJOLNIR._tools import WavelengthK
 from MJOLNIR.TasUBlibDEG import calcCell,calculateBMatrix,calTwoTheta

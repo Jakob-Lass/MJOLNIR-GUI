@@ -12,7 +12,7 @@ except ImportError:
     from _tools import ProgressBarDecoratorArguments,loadUI
     import _tools as _GUItools
 from os import path
-from PyQt5 import QtWidgets, uic, QtCore, QtGui
+from PyQt6 import QtWidgets, QtCore, QtGui
 import numpy as np
 import matplotlib.pyplot as plt
 

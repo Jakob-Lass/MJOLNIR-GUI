@@ -10,8 +10,8 @@ except ImportError:
     from MJOLNIR_Data import GuiDataFile,GuiDataSet
     from _tools import ProgressBarDecoratorArguments,loadUI
 
-from PyQt5 import QtWidgets, QtCore, QtGui
-from PyQt5.Qt import QApplication
+from PyQt6 import QtWidgets, QtCore, QtGui
+#from PyQt6.Qt import QtGui
 from MJOLNIR.Data import DataFile
 import numpy as np
 from os import path
@@ -348,7 +348,7 @@ def DataSet_DataFileInfo_copy(self,idx,clipboard=True):
     
     text = self.DataFileInfoModel.data(idx,QtCore.Qt.DisplayRole)
     if clipboard:
-        QApplication.clipboard().setText(text)
+        QtGui.clipboard().setText(text)
     else:
         self.writeToStatus(text)
     

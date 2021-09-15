@@ -10,7 +10,7 @@ except ImportError:
     from _tools import ProgressBarDecoratorArguments,loadUI
     import _tools as _GUItools
 from os import path
-from PyQt5 import QtWidgets,uic,QtGui,QtCore
+from PyQt6 import QtGui,QtCore
 import numpy as np
 from MJOLNIR.TasUBlibDEG import calTwoTheta,calculateBMatrix,calcCell
 from MJOLNIR.Geometry.Instrument import prediction,converterToA3A4,converterToQxQy
