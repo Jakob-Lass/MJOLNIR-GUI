@@ -818,10 +818,7 @@ class DataFileModel(QtCore.QAbstractListModel):
             return None
         else:
             ds = self.dataSetModel.item(self.getCurrentDatasetIndex())
-            if raw:
-                dfs = [ds[idx] if not ds[idx].type == 'nxs' else ds[idx].original_file for idx in indexRows]
-            else:
-                dfs = [ds[idx] for idx in indexRows]
+            dfs = [ds[idx] for idx in indexRows]
             return dfs
 
     def getData(self,raw = False):
@@ -832,7 +829,7 @@ class DataFileModel(QtCore.QAbstractListModel):
         if len(ds) == 0:
             return []
         if raw:
-            dfs = [df if not df.type == 'nxs' else df.original_file for df in ds]
+            dfs = [df if not df.type == 'nxs' else GuiDataFile(df.original_fileLocation) for df in ds]
         else:
             dfs = [df for df in ds]
         
