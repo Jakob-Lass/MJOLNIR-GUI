@@ -507,7 +507,7 @@ class MJOLNIRMainWindow(QtWidgets.QMainWindow):
         for i,ds in enumerate(self.DataSetModel.dataSets):
             dsDict = {'name':ds.name}
             
-            localstring = [df.fileLocation if df.type != 'nxs' else df.original_file.fileLocation for df in ds]
+            localstring = [df.fileLocation if df.type != 'nxs' else df.original_fileLocation for df in ds]
             dsDict['files']=localstring
             dsDict['binning'] = [None if df.type != 'nxs' else df.binning for df in ds]
             if not ds.background is None:
