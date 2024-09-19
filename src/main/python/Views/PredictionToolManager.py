@@ -292,7 +292,7 @@ class PredictionToolManager(PredictionToolManagerBase, PredictionToolManagerForm
         """Generate prediction window from MJOLNIR"""
         A3Start,A3Stop,dA3,Ei,A4,points,Monitor = self.getScan()
 
-        A3Steps = np.abs(A3Stop-A3Stop)/(dA3)+1
+        A3Steps = int(np.abs(A3Stop-A3Start)/(dA3))+1
         r1 = np.array(self.getAlignment(alignment=1))
         r2 = np.array(self.getAlignment(alignment=2))
 
